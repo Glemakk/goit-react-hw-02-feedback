@@ -1,19 +1,57 @@
+import React, { Component } from 'react'
 import StatisticsItem from './StatisticsItem'
 import Total from './Total'
 import PositiveFb from '../PositiveFb/PositiveFb'
 
-const StatisticsList = ({ good, neutral, bad, total, positivePercentage }) => (
-  <div>
-    <section>
-      <h2>Statistics</h2>
-      <ul>
-        <StatisticsItem good={good} neutral={neutral} bad={bad} />
-        <Total total={total} />
-        <PositiveFb positivePercentage={positivePercentage} />
-      </ul>
-    </section>
-  </div>
-)
+//==================================
+// const Statistics = ({
+//   good,
+//   neutral,
+//   bad,
+//   total,
+//   positivePercentage
+// }) => (
+//   <div>
+//     <ul>
+//       <StatisticsItem good={good} neutral={neutral} bad={bad} />
+//       <Total total={total} />
+//       <PositiveFb positivePercentage={positivePercentage} />
+//     </ul>
+//   </div>
+// )
+//=======================================
+
+class Statistics extends Component {
+  state = {
+    visible: false,
+  }
+
+  // show = () => {
+  //   this.setState({ visible: true })
+  // }
+
+  // hide = () => {
+  //   this.setState({ visible: false })
+  // }
+
+  render() {
+    const { good, neutral, bad, total, positivePercentage } = this.props
+
+    return (
+      <div>
+        {total === 0 ? (
+          this.state.visible
+        ) : (
+          <ul>
+            <StatisticsItem good={good} neutral={neutral} bad={bad} />
+            <Total total={total} />
+            <PositiveFb positivePercentage={positivePercentage} />
+          </ul>
+        )}
+      </div>
+    )
+  }
+}
 
 // class StatisticsList extends Component {
 //   state = {
@@ -98,4 +136,4 @@ const StatisticsList = ({ good, neutral, bad, total, positivePercentage }) => (
 //   title: PropTypes.string,
 //   grades: PropTypes.array.isRequired,
 // }
-export default StatisticsList
+export default Statistics

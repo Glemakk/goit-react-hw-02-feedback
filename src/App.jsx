@@ -1,7 +1,9 @@
 import { Component } from 'react'
 import Container from './components/Container/Container'
-import StatisticsList from './components/Statistics/StatisticsList'
-import Buttons from './components/Buttons/Buttons'
+import Section from './components/Section/Section'
+import Statistics from './components/Statistics/Statistics'
+import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions'
+import Notification from './components/Notification/Notification'
 
 // import grades from './data/grades.json'
 
@@ -63,19 +65,22 @@ class App extends Component {
 
     return (
       <Container>
-        <Buttons
-          title="Please leave feedback"
-          // onIncrement={this.handleIncrement}
-          onClick={this.handleIncrement}
-        />
-        <StatisticsList
-          title="Statistics"
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage()}
-        />
+        <Section title="Please leave feedback">
+          <FeedbackOptions onLeaveFeedback={this.handleIncrement} />
+        </Section>
+        <Section title="Statistics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        </Section>
+        <Notification
+          count={this.countTotalFeedback()}
+          message="No feedback given"
+        ></Notification>
       </Container>
     )
   }
