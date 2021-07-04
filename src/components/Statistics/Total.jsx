@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types'
 
-const Total = ({ total, good, neutral, bad }) => {
-  const s = { total }
-  console.log('TOTAL', s)
+const Total = ({ total }) => {
   return (
     <>
       <li>

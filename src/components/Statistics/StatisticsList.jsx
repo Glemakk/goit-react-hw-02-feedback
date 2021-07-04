@@ -1,19 +1,15 @@
 import StatisticsItem from './StatisticsItem'
 import Total from './Total'
+import PositiveFb from '../PositiveFb/PositiveFb'
 
-const StatisticsList = ({ good, neutral, bad, total }) => (
+const StatisticsList = ({ good, neutral, bad, total, positivePercentage }) => (
   <div>
     <section>
       <h2>Statistics</h2>
       <ul>
-        <StatisticsItem
-          // state={this.state}
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          // grades={grades}
-        />
+        <StatisticsItem good={good} neutral={neutral} bad={bad} />
         <Total total={total} />
+        <PositiveFb positivePercentage={positivePercentage} />
       </ul>
     </section>
   </div>

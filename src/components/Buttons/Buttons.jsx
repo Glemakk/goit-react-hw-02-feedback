@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Buttons = ({ title, onClick }) => (
   <div>
     <section>
